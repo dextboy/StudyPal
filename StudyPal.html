@@ -1,18 +1,38 @@
 <!DOCTYPE html>
 <html>
+    
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width"/>
     <title>StudyPal</title>
 </head>
+
 <body>
-    <h1>StudyPal</h1>
+    <h1>____'s StudyPal</h1>
     <h2>A study companion web application by Tan Dexter and Joy Liu</h2>
-    <p id="Pomodoro timer">Pomodoro Timer</p>
-    <p id="To-do list">To-do List (With Priority Levels)</p>
-    <p id="Calendar">Calendar</p>
-    <p id="Task Timer">Task Timer</p>
-    <p id="Leaderboard">Optional: Leaderboard</p>
+    <!-->below is a navigation bar<-->
+    <nav>
+        <ul>
+            <li><a href="#">Calendar</a></li>
+            <li><a href="#">Pomodoro Timer</a></li>
+            <li><a href="#">Notes</a></li>
+            <li><a href="#">Leaderboard/Analytics(Optional)</a></li>
+        </ul>
+        <form>
+            <input type="search" name="q" placeholder="Search query" />
+            <input type="submit" value="Go!">
+        </form>
+    </nav>
+    <!-->today's tasks runs throughout the webpage<-->
+    <div class="todays-tasks"><p>Today's Tasks</p></div>
+    
+    <!-->items below belong to page sections<-->
+    <div class="calendar"><p>Calendar</p></div>
+    <div class="pomodoro_timer"><p>Pomodoro Timer</p></div>
+    <div class="notes"><p>notes</p></div>
+    <div class="leaderboard/analytics"><p>Leaderboard/Analytics(Optional)</p></div>
+    
+    <!-->below is a link to email draft if issues occur<-->
     <a href="mailto:tandexter98@gmail.com?cc=jlzh03@gmail.com&subject=Issue(s)%20with%20StudyPal">
     Send email for issues</a>
 </body>
