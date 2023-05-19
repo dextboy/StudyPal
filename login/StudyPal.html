@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <script src="StudyPal.js"></script>
+    <link rel="stylesheet" href="StudyPal.css">
+    <title>StudyPal</title>
+</head>
+
+<body>
+    <div class="studypal">
+    <h1>____'s StudyPal</h1>
+    <h2>A study companion web application by Tan Dexter and Joy Liu</h2>
+    <!-- below is a navigation bar -->
+    <nav>
+        <ul>
+            <li><a href="#">Calendar</a></li>
+            <li><a href="#">Pomodoro Timer</a></li>
+            <li><a href="#">Notes</a></li>
+            <li><a href="#">Leaderboard/Analytics(Optional)</a></li>
+        </ul>
+        <form>
+            <input type="search" name="q" placeholder="Search query" />
+            <input type="submit" value="Go!">
+        </form>
+    </nav>
+    <!-- today's tasks runs throughout the webpage -->
+    <div id="todays-tasks"><p>Today's Tasks</p></div>
+       <ul>
+       
+       </ul>
+
+       <input type="text" id="taskinput">
+       <button onclick="addTask()">Add Task</button>
+       
+       <script src="StudyPal.js"></script>
+    
+    <!-- items below belong to page sections -->
+    <div id="calendar"><p>Calendar</p></div>
+    <div id="pomodoro_timer"><p>Pomodoro Timer</p></div>
+    <div id="notes"><p>notes</p></div>
+    <div id="leaderboard/analytics"><p>Leaderboard/Analytics(Optional)</p></div>
+    </div>
+    
+    <!-- below is a link to email draft if issues occur -->
+    <a href="mailto:tandexter98@gmail.com?cc=jlzh03@gmail.com&subject=Issue(s)%20with%20StudyPal">
+    Send email for issues</a>
+</body>
+
+</html>
