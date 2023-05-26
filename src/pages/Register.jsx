@@ -70,8 +70,7 @@ const Register = () => {
               <Alert
                 variant="danger"
                 onClose={() => setErrorMsg("")}
-                dismissible
-              >
+                dismissible>
                 {errorMsg}
               </Alert>
             )}

@@ -52,8 +52,7 @@ const UpdatePassword = () => {
               <Alert
                 variant="danger"
                 onClose={() => setErrorMsg("")}
-                dismissible
-              >
+                dismissible>
                 {errorMsg}
               </Alert>
             )}

@@ -22,7 +22,7 @@ const Login = () => {
       }
       const {
         data: { user, session },
-        error,
+        error
       } = await login(emailRef.current.value, passwordRef.current.value);
       if (error) setErrorMsg(error.message);
       if (user && session) navigate("/");
@@ -50,8 +50,7 @@ const Login = () => {
               <Alert
                 variant="danger"
                 onClose={() => setErrorMsg("")}
-                dismissible
-              >
+                dismissible>
                 {errorMsg}
               </Alert>
             )}
