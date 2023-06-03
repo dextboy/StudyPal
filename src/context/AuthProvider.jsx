@@ -12,7 +12,8 @@ const signOut = () => supabase.auth.signOut();
 
 const passwordReset = (email) =>
   supabase.auth.resetPasswordForEmail(email, {
-    redirectTo: "http://localhost:5173/update-password"
+    redirectTo:
+      "https://beamish-buttercream-f145f8.netlify.app/update-password",
   });
 
 const updatePassword = (updatedPassword) =>
@@ -57,8 +58,9 @@ const AuthProvider = ({ children }) => {
         login,
         signOut,
         passwordReset,
-        updatePassword
-      }}>
+        updatePassword,
+      }}
+    >
       {!loading && children}
     </AuthContext.Provider>
   );
