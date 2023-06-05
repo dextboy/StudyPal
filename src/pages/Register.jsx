@@ -7,39 +7,19 @@ const Register = () => {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const confirmPasswordRef = useRef(null);
-  const usernameRef = useRef(null);
-  const firstNameRef = useRef(null);
-  const lastNameRef = useRef(null);
   const [errorMsg, setErrorMsg] = useState("");
   const [msg, setMsg] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const register = async (email, password, username, firstName, lastName) => {
-    const { user, error } = await supabase.auth.signUp({ email, password });
-
-    if (!error && user) {
-      const profileData = {
-        id: user.id,
-        username,
-        email,
-        first_name: firstName,
-        last_name: lastName,
-      };
-      await supabase.from("profiles").insert(profileData);
-      console.log(error);
-    }
-    return { user, error };
-  };
+  const register = (email, password) =>
+    supabase.auth.signUp({ email, password });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (
       !passwordRef.current?.value ||
       !emailRef.current?.value ||
-      !confirmPasswordRef.current?.value ||
-      !usernameRef.current?.value ||
-      !firstNameRef.current?.value ||
-      !lastNameRef.current?.value
+      !confirmPasswordRef.current?.value
     ) {
       setErrorMsg("Please fill all the fields");
       return;
@@ -53,10 +33,7 @@ const Register = () => {
       setLoading(true);
       const { data, error } = await register(
         emailRef.current.value,
-        passwordRef.current.value,
-        usernameRef.current.value,
-        firstNameRef.current.value,
-        lastNameRef.current.value
+        passwordRef.current.value
       );
       console.log(data);
       console.log(error);
@@ -77,18 +54,6 @@ const Register = () => {
         <Card.Body>
           <h2 className="text-center mb-4">Register</h2>
           <Form onSubmit={handleSubmit}>
-            <Form.Group if="username">
-              <Form.Label>Username</Form.Label>
-              <Form.Control type="text" ref={usernameRef} required />
-            </Form.Group>
-            <Form.Group if="first-name">
-              <Form.Label>First Name</Form.Label>
-              <Form.Control type="text" ref={firstNameRef} required />
-            </Form.Group>
-            <Form.Group if="last-name">
-              <Form.Label>Last Name</Form.Label>
-              <Form.Control type="text" ref={lastNameRef} required />
-            </Form.Group>
             <Form.Group id="email">
               <Form.Label>Email</Form.Label>
               <Form.Control type="email" ref={emailRef} required />
@@ -105,8 +70,7 @@ const Register = () => {
               <Alert
                 variant="danger"
                 onClose={() => setErrorMsg("")}
-                dismissible
-              >
+                dismissible>
                 {errorMsg}
               </Alert>
             )}
