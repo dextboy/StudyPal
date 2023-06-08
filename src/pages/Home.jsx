@@ -1,9 +1,8 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { useAuth } from "../context/AuthProvider";
 import BasicTabs from "../components/Tabs";
 import TODO from "../components/ToDo";
-import "../components/style/ToDostyle.css";
-
+import "../components/style/Body.css";
 
 const Home = () => {
   const { user } = useAuth();
@@ -12,11 +11,11 @@ const Home = () => {
 
   return (
     <>
-      <div className="position-absolute bottom-50 start-0">
-        <BasicTabs/>
+      <div className="position-absolute bottom-50 start-0 w-50">
+        <BasicTabs />
       </div>
-      <div>
-        <TODO/>
+      <div className="position-absolute bottom-50 end-0">
+        <TODO />
       </div>
     </>
   );
