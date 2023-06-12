@@ -36,7 +36,7 @@ function FormTodo({ addTodo }) {
       <Form.Label><b>Add Todo</b></Form.Label>
       <Form.Control type="text" className="input" value={value} onChange={e => setValue(e.target.value)} placeholder="Add new todo" />
     </Form.Group>
-    <Button variant="primary mb-3" type="submit">
+    <Button variant="dark" type="submit">
       Submit
     </Button>
   </Form>
@@ -70,6 +70,26 @@ function TODO() {
       <div className="container">
         <h1 className="text-center mb-4">Todo List</h1>
         <FormTodo addTodo={addTodo} />
+        <div className="category">
+          <label>
+            <input 
+            type="radio"
+            name="category"
+            id="cat1"
+            value="personal"/>
+            <span class="bubble personal"></span>
+            <div>Personal</div>
+          </label>
+          <label>
+            <input 
+            type="radio"
+            name="category"
+            id="cat1"
+            value="school"/>
+            <span class="bubble school"></span>
+            <div>School</div>
+          </label>
+        </div>
         <div>
           {todos.map((todo, index) => (
             <Card>

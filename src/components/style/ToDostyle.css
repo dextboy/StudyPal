@@ -1,7 +1,8 @@
-body {
-    background-color: rgb(246, 235, 228);
-    color: rgb(24, 27, 30);
+.todo {
+    align-items: center;
+    display: flex;
+    font-size: 16px;
+    justify-content: space-between;
 }
 
-  
   
