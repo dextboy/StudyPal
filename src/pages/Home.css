@@ -1,0 +1,24 @@
+#light .main {
+    background-color: #f3f3f3
+}
+
+#dark .main {
+    background-color: black;
+}
+
+body {
+    background-color: rgb(250, 231, 220);
+}
+
+.todolist {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 1100px;
+}
+.todolist .container{
+    width: 450px;
+    height: 550px;
+    background-color: rgb(255, 248, 244);
+}
+
