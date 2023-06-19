@@ -1,3 +1,4 @@
+import React from "react";
 import { Container } from "react-bootstrap";
 import { Route, Routes } from "react-router-dom";
 import AuthRoute from "./components/AuthRoute";
@@ -16,6 +17,7 @@ const App = () => {
       <Container
         className="d-flex align-items-center justify-content-center"
         style={{ minHeight: "100vh" }}
+        id="main-container"
       >
         <div className="w-100" style={{ maxWidth: "400px" }}>
           <Routes>
