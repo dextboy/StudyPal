@@ -13,8 +13,11 @@ function Home () {
   return (
     <>
     <div>
-      <div className="position-absolute bottom-50 start-0">
+      <div className="tabs">
+        <div className="container">
         <BasicTabs/>
+        </div>
+        
       </div>
       <div className="todolist">
         <div className="container">
