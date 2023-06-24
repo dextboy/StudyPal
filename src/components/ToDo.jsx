@@ -43,15 +43,23 @@ function FormTodo() {
   };
 
   return (
-    <Form onSubmit={handleSubmit}> 
-    <Form.Group>
-      <Form.Label><b>Add Todo</b></Form.Label>
-      <Form.Control type="text" className="input" value={value} onChange={e => setValue(e.target.value)} placeholder="Add new todo" />
-    </Form.Group>
-    <Button variant="dark" type="submit">
-      Submit
-    </Button>
-  </Form>
+    <Form onSubmit={handleSubmit}>
+      <Form.Group>
+        <Form.Label>
+          <b>Add Todo</b>
+        </Form.Label>
+        <Form.Control
+          type="text"
+          className="input"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          placeholder="Add new todo"
+        />
+      </Form.Group>
+      <Button variant="dark" type="submit">
+        Submit
+      </Button>
+    </Form>
   );
 }
 
@@ -74,7 +82,7 @@ function TODO() {
 
   useEffect(() => {
     fetchTodos();
-  }, [user]);
+  }, [user, todos]);
 
   const addTodo = async (text) => {
     const { data, error } = await supabase
@@ -125,21 +133,13 @@ function TODO() {
         <FormTodo addTodo={addTodo} />
         <div className="category">
           <label>
-            <input 
-            type="radio"
-            name="category"
-            id="cat1"
-            value="personal"/>
-            <span class="bubble personal"></span>
+            <input type="radio" name="category" id="cat1" value="personal" />
+            <span className="bubble personal"></span>
             <div>Personal</div>
           </label>
           <label>
-            <input 
-            type="radio"
-            name="category"
-            id="cat1"
-            value="school"/>
-            <span class="bubble school"></span>
+            <input type="radio" name="category" id="cat1" value="school" />
+            <span className="bubble school"></span>
             <div>School</div>
           </label>
         </div>
