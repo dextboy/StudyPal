@@ -12,8 +12,7 @@ const signOut = () => supabase.auth.signOut();
 
 const passwordReset = (email) =>
   supabase.auth.resetPasswordForEmail(email, {
-    redirectTo:
-      "https://beamish-buttercream-f145f8.netlify.app/update-password",
+    redirectTo: "https://orbital-studypal.netlify.app/update-password",
   });
 
 const updatePassword = (updatedPassword) =>
@@ -32,6 +31,10 @@ const AuthProvider = ({ children }) => {
       setUser(currentUser ?? null);
       setAuth(currentUser ? true : false);
       setLoading(false);
+      dataLayer.push({
+        event: "authentication",
+        user_id: String(currentUser?.id),
+      });
     };
     getUser();
     const { data } = supabase.auth.onAuthStateChange(async (event, session) => {
@@ -40,9 +43,14 @@ const AuthProvider = ({ children }) => {
       } else if (event === "SIGNED_IN") {
         setUser(session.user);
         setAuth(true);
+        dataLayer.push({
+          event: "authentication",
+          user_id: String(currentUser?.id),
+        });
       } else if (event === "SIGNED_OUT") {
         setAuth(false);
         setUser(null);
+        dataLayer.push({ user_id: null });
       }
     });
     return () => {
