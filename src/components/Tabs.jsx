@@ -5,6 +5,9 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import App from "./Pomodoro";
+import Calendar from "./Calendar";
+import { Paper } from "@mui/material";
+
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -60,13 +63,12 @@ const BasicTabs = () => {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        calendar
+        <Calendar />
       </TabPanel>
       <TabPanel value={value} index={1}>
         <App />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
       </TabPanel>
     </Box>
   );

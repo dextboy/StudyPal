@@ -3,6 +3,7 @@ import { useAuth } from "../context/AuthProvider";
 import BasicTabs from "../components/Tabs";
 import TODO from "../components/ToDo";
 import "../pages/Home.css";
+import { Paper } from "@mui/material";
 
 
 function Home () {
@@ -15,14 +16,15 @@ function Home () {
     <div>
       <div className="tabs">
         <div className="container">
-        <BasicTabs/>
+            <BasicTabs/>
         </div>
-        
       </div>
       <div className="todolist">
-        <div className="container">
-        <TODO/>
-        </div>
+          <div className="container">
+            <Paper elevation={3}>
+              <TODO/>
+            </Paper>
+          </div>
       </div>
     </div>
     </>

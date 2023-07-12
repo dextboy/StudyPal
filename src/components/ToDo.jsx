@@ -4,6 +4,7 @@ import { Button, Card, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { supabase } from "../supabase/client";
 import { useAuth } from "../context/AuthProvider";
+import { Paper } from "@mui/material";
 
 function Todo({ todo, index, markTodo, removeTodo }) {
   return (
@@ -131,7 +132,7 @@ function TODO() {
       <div className="container">
         <h1 className="text-center mb-4">Todo List</h1>
         <FormTodo addTodo={addTodo} />
-        <div className="category">
+        {/*<div className="category">
           <label>
             <input type="radio" name="category" id="cat1" value="personal" />
             <span className="bubble personal"></span>
@@ -143,8 +144,10 @@ function TODO() {
             <div>School</div>
           </label>
         </div>
+  */}
         <div>
           {todos.map((todo, index) => (
+            <Paper elevation={2}>
             <Card key={todo.id}>
               <Card.Body>
                 <Todo
@@ -155,6 +158,7 @@ function TODO() {
                 />
               </Card.Body>
             </Card>
+            </Paper>
           ))}
         </div>
       </div>
