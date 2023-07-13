@@ -1,3 +1,4 @@
 .Tabs {
     align-content: left;
+    max-width: max-content;
 }
