@@ -5,6 +5,7 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import App from "./Pomodoro";
+import Analytics from "./Analytics";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -47,7 +48,7 @@ const BasicTabs = () => {
   };
 
   return (
-    <Box sx={{ width: "100%"}}>
+    <Box sx={{ width: "100%" }}>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs
           value={value}
@@ -56,7 +57,7 @@ const BasicTabs = () => {
         >
           <Tab label="Calendar" {...a11yProps(0)} />
           <Tab label="Pomodoro Timer" {...a11yProps(1)} />
-          <Tab label="Item Three" {...a11yProps(2)} />
+          <Tab label="Analytics" {...a11yProps(2)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
@@ -66,7 +67,7 @@ const BasicTabs = () => {
         <App />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+        <Analytics />
       </TabPanel>
     </Box>
   );
