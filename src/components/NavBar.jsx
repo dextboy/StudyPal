@@ -11,7 +11,6 @@ const NavBar = () => {
   const handleLogout = async (e) => {
     e.preventDefault();
     try {
-      //endSession();
       const { error } = await signOut();
       console.log(error);
     } catch (error) {
