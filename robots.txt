@@ -1,2 +1,4 @@
 User-agent: *
-Allow: / 
+allow: / 
+
+sitemap: https://orbital-studypal.netlify.app/sitemap.txt
