@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { useAuth } from "../context/AuthProvider";
 import { Alert, Button, Card, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const PasswordReset = () => {
   const { passwordReset } = useAuth();
@@ -25,6 +26,14 @@ const PasswordReset = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Reset Password</title>
+        <meta
+          name="description"
+          content="Reset your StudyPal account password here."
+        />
+        <link rel="canonical" href="/passwordreset" />
+      </Helmet>
       <Card>
         <Card.Body>
           <h2 className="text-center mb-4">Reset Password</h2>

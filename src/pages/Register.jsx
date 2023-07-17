@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { Alert, Button, Card, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { supabase } from "../supabase/client";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const emailRef = useRef(null);
@@ -50,6 +51,14 @@ const Register = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Register</title>
+        <meta
+          name="description"
+          content="Register your StudyPal account here."
+        />
+        <link rel="canonical" href="/register" />
+      </Helmet>
       <Card>
         <Card.Body>
           <h2 className="text-center mb-4">Register</h2>
@@ -70,7 +79,8 @@ const Register = () => {
               <Alert
                 variant="danger"
                 onClose={() => setErrorMsg("")}
-                dismissible>
+                dismissible
+              >
                 {errorMsg}
               </Alert>
             )}

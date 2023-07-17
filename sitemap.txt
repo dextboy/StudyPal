@@ -1,0 +1,4 @@
+https://orbital-studypal.netlify.app/
+https://orbital-studypal.netlify.app/login
+https://orbital-studypal.netlify.app/register
+https://orbital-studypal.netlify.app/passwordreset
