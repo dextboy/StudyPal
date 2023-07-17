@@ -10,6 +10,26 @@ const Calendar = () => {
   const [events, setEvents] = useState([]);
   const { user } = useAuth();
 
+  const fetchEvents = async () => {
+    const { data, error } = await supabase
+      .from("events")
+      .select("*")
+      .eq("user_id", user?.id); // Replace with the actual user ID
+
+    if (data) {
+      const formattedEvents = data.map((event) => ({
+        ...event,
+        start: new Date(event.start),
+        end: new Date(event.end),
+      }));
+      setEvents(formattedEvents);
+    }
+
+    if (error) {
+      console.log("Error fetching events:", error.message);
+    }
+  };
+
   const handleSelect = async (info) => {
     const { start, end } = info;
     const eventNamePrompt = prompt("Enter event name");
@@ -36,31 +56,32 @@ const Calendar = () => {
             user_id: user?.id,
           },
         ]);
+        fetchEvents();
+      }
+    }
+  };
+
+  const handleEventDelete = async (info) => {
+    if (window.confirm("Are you sure you want to delete this event?")) {
+      const eventId = info.event.id;
+      console.log(eventId);
+      const { data, error } = await supabase
+        .from("events")
+        .delete()
+        .eq("id", eventId);
+
+      if (error) {
+        console.log("Error deleting event:", error.message);
+      } else {
+        // Delay the fetch operation by 500 milliseconds (adjust as needed)
+        setTimeout(() => {
+          fetchEvents();
+        }, 500);
       }
     }
   };
 
   useEffect(() => {
-    const fetchEvents = async () => {
-      const { data, error } = await supabase
-        .from("events")
-        .select("*")
-        .eq("user_id", user?.id); // Replace with the actual user ID
-
-      if (data) {
-        const formattedEvents = data.map((event) => ({
-          ...event,
-          start: new Date(event.start),
-          end: new Date(event.end),
-        }));
-        setEvents(formattedEvents);
-      }
-
-      if (error) {
-        console.log("Error fetching events:", error.message);
-      }
-    };
-
     fetchEvents();
   }, []);
 
@@ -71,6 +92,7 @@ const Calendar = () => {
         selectable
         events={events}
         select={handleSelect}
+        eventClick={handleEventDelete}
         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
         initialView="dayGridMonth"
         headerToolbar={{

@@ -66,6 +66,9 @@
     "transform": {
       "^.+\\.jsx?$": "babel-jest"
     },
+    "testEnvironmentOptions": {
+      "customExportConditions": []
+    },
     "moduleNameMapper": {
       "\\.(css|less|sass|scss)$": "identity-obj-proxy"
     }
