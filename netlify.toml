@@ -1,6 +1,6 @@
 [[redirects]]
   from = "/sitemap.txt"
-  to = "sitemap.txt"
+  to = "/sitemap.txt"
   status = 200
 
 [[redirects]]
