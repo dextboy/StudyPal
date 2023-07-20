@@ -132,32 +132,19 @@ function TODO() {
       <div className="container">
         <h1 className="text-center mb-4">Todo List</h1>
         <FormTodo addTodo={addTodo} />
-        {/*<div className="category">
-          <label>
-            <input type="radio" name="category" id="cat1" value="personal" />
-            <span className="bubble personal"></span>
-            <div>Personal</div>
-          </label>
-          <label>
-            <input type="radio" name="category" id="cat1" value="school" />
-            <span className="bubble school"></span>
-            <div>School</div>
-          </label>
-        </div>
-  */}
         <div>
           {todos.map((todo, index) => (
             <Paper elevation={2}>
-            <Card key={todo.id}>
-              <Card.Body>
-                <Todo
-                  index={index}
-                  todo={todo}
-                  markTodo={markTodo}
-                  removeTodo={removeTodo}
-                />
-              </Card.Body>
-            </Card>
+              <Card key={todo.id}>
+                <Card.Body>
+                  <Todo
+                    index={index}
+                    todo={todo}
+                    markTodo={markTodo}
+                    removeTodo={removeTodo}
+                  />
+                </Card.Body>
+              </Card>
             </Paper>
           ))}
         </div>

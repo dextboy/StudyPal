@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../supabase/client";
 import { useAuth } from "../context/AuthProvider";
+import { Card } from "react-bootstrap";
 
 const Analytics = () => {
   const { user } = useAuth();
@@ -105,12 +106,27 @@ const Analytics = () => {
   }, [user?.id]);
 
   return (
-    <div>
-      <h1>
-        Total Time on app: {totalDays} days {totalHours} hours {totalMinutes}{" "}
-        minutes
-      </h1>
-    </div>
+    <>
+      <Card style={{ width: "18rem" }} className="text-center">
+        <Card.Header as="h5">Analytics</Card.Header>
+        <Card.Body>
+          <Card.Text>
+            <h6
+              style={{
+                marginBottom: "10px",
+                fontSize: "16px",
+                fontWeight: "bold",
+              }}
+            >
+              Total Time on App:
+            </h6>
+            <p style={{ fontSize: "20px" }}>
+              {totalDays} days {totalHours} hours {totalMinutes} minutes
+            </p>
+          </Card.Text>
+        </Card.Body>
+      </Card>
+    </>
   );
 };
 

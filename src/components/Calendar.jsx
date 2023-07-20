@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
+import listPlugin from "@fullcalendar/list";
 import interactionPlugin from "@fullcalendar/interaction";
 import { useAuth } from "../context/AuthProvider";
 import { supabase } from "../supabase/client";
@@ -14,7 +15,7 @@ const Calendar = () => {
     const { data, error } = await supabase
       .from("events")
       .select("*")
-      .eq("user_id", user?.id); // Replace with the actual user ID
+      .eq("user_id", user?.id);
 
     if (data) {
       const formattedEvents = data.map((event) => ({
@@ -40,7 +41,7 @@ const Calendar = () => {
           start: start.toISOString(),
           end: end.toISOString(),
           title: eventNamePrompt,
-          user_id: user?.id, // Replace with the actual user ID
+          user_id: user?.id,
         },
       ]);
 
@@ -64,7 +65,6 @@ const Calendar = () => {
   const handleEventDelete = async (info) => {
     if (window.confirm("Are you sure you want to delete this event?")) {
       const eventId = info.event.id;
-      console.log(eventId);
       const { data, error } = await supabase
         .from("events")
         .delete()
@@ -86,23 +86,23 @@ const Calendar = () => {
   }, []);
 
   return (
-    <div>
-      <FullCalendar
-        editable
-        selectable
-        events={events}
-        select={handleSelect}
-        eventClick={handleEventDelete}
-        plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
-        initialView="dayGridMonth"
-        headerToolbar={{
-          start: "today prev,next",
-          center: "title",
-          end: "dayGridMonth,timeGridWeek,timeGridDay",
-        }}
-        height="100vh"
-      />
-    </div>
+    <FullCalendar
+      editable
+      selectable
+      events={events}
+      select={handleSelect}
+      eventClick={handleEventDelete}
+      plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
+      initialView="dayGridMonth"
+      headerToolbar={{
+        start: "prev,today,next",
+        center: "title",
+        end: "dayGridMonth,timeGridWeek,timeGridDay,listMonth",
+      }}
+      height="60vh"
+      dayMaxEventRows={3}
+      dayPopoverFormat={{ month: "short", day: "numeric", year: "numeric" }}
+    />
   );
 };
 

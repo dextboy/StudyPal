@@ -4,11 +4,10 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import App from "./Pomodoro";
+import Pomodoro from "./Pomodoro";
 import Analytics from "./Analytics";
 import Calendar from "./Calendar";
 import { Paper } from "@mui/material";
-
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -51,7 +50,14 @@ const BasicTabs = () => {
   };
 
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box
+      sx={{
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs
           value={value}
@@ -67,7 +73,7 @@ const BasicTabs = () => {
         <Calendar />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <App />
+        <Pomodoro />
       </TabPanel>
       <TabPanel value={value} index={2}>
         <Analytics />

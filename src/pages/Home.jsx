@@ -5,30 +5,38 @@ import TODO from "../components/ToDo";
 import "../pages/Home.css";
 import { Paper } from "@mui/material";
 
-
-function Home () {
+function Home() {
   const { user } = useAuth();
   const [list, setlist] = useState([]);
   const [input, setInput] = useState("");
-  
+
   return (
     <>
-    <div>
-      <div className="tabs">
-        <div className="container">
-            <BasicTabs/>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          minHeight: "100vh", // Take full height of the viewport
+          padding: "20px",
+        }}
+      >
+        <div className="tabs">
+          <div className="container">
+            <BasicTabs />
+          </div>
         </div>
-      </div>
-      <div className="todolist">
+        <div className="todolist">
           <div className="container">
             <Paper elevation={3}>
-              <TODO/>
+              <TODO />
             </Paper>
           </div>
+        </div>
       </div>
-    </div>
     </>
   );
-};
+}
 
 export default Home;
