@@ -51,6 +51,7 @@
     "@vitejs/plugin-react": "^4.0.0",
     "babel-jest": "^29.5.0",
     "css-loader": "^6.8.1",
+    "cypress": "^12.17.2",
     "esbuild": "^0.18.8",
     "eslint": "^8.38.0",
     "eslint-plugin-react": "^7.32.2",
